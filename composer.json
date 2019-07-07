@@ -16,7 +16,6 @@
     "magento/module-graph-ql": "*",
     "magento/module-graph-ql-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
-    "magento/module-inventory-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
     "magento/module-sales-graph-ql": "*",
     "magento/module-send-friend-graph-ql": "*",
