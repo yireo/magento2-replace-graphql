@@ -26,6 +26,12 @@
     "magento/module-url-rewrite-graph-ql": "*",
     "magento/module-vault-graph-ql": "*",
     "magento/module-weee-graph-ql": "*",
-    "magento/module-wishlist-graph-ql": "*"
+    "magento/module-wishlist-graph-ql": "*",
+    "magento/module-authorizenet-graph-ql": "*",
+    "magento/module-braintree-graph-ql": "*",
+    "magento/module-checkout-agreements-graph-ql": "*",
+    "magento/module-inventory-graph-ql": "*",
+    "magento/module-paypal-graph-ql": "*",
+    "magento/module-related-product-graph-ql": "*"
   }
 }
