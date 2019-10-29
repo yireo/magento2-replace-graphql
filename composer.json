@@ -20,6 +20,7 @@
     "magento/module-graph-ql-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
+    "magento/module-paypal-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-sales-graph-ql": "*",
     "magento/module-send-friend-graph-ql": "*",
