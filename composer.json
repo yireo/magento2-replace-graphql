@@ -1,6 +1,6 @@
 {
   "name": "yireo/magento2-replace-graphql",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "replace": {
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
@@ -19,6 +19,7 @@
     "magento/module-graph-ql": "*",
     "magento/module-graph-ql-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
+    "magento/module-paypal-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-sales-graph-ql": "*",
