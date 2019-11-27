@@ -1,6 +1,5 @@
 {
   "name": "yireo/magento2-replace-graphql",
-  "version": "2.3.2",
   "replace": {
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
