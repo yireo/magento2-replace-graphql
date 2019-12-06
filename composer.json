@@ -12,6 +12,7 @@
     "magento/module-cms-url-rewrite-graph-ql": "*",
     "magento/module-configurable-product-graph-ql": "*",
     "magento/module-customer-graph-ql": "*",
+    "magento/module-customer-balance-graph-ql": "*",
     "magento/module-directory-graph-ql": "*",
     "magento/module-downloadable-graph-ql": "*",
     "magento/module-eav-graph-ql": "*",
