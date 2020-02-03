@@ -2,9 +2,9 @@
   "name": "yireo/magento2-replace-graphql",
   "version":"2.3.4",
   "replace": {
-    "magento/module-catalog-cms-graph-ql",
-    "magento/module-catalog-customer-graph-ql",
-    "magento/module-customer-downloadable-graph-ql",
+    "magento/module-catalog-cms-graph-ql":"*",
+    "magento/module-catalog-customer-graph-ql":"*",
+    "magento/module-customer-downloadable-graph-ql":"*",
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
     "magento/module-bundle-graph-ql": "*",
