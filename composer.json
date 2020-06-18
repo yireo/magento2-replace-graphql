@@ -1,6 +1,5 @@
 {
   "name": "yireo/magento2-replace-graphql",
-<<<<<<< HEAD
   "version":"2.3.5",
   "require": {
     "magento/product-community-edition": "^2.3.5"
@@ -46,7 +45,4 @@
     "magento/module-weee-graph-ql": "*",
     "magento/module-wishlist-graph-ql": "*"
   }
-=======
-  "description":"Please see specific branches instead"
->>>>>>> 26cffed7caf673aec1fb9846cf23d7ab9299f84d
 }
