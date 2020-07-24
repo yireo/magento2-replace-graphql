@@ -1,4 +1,47 @@
 {
   "name": "yireo/magento2-replace-graphql",
-  "description":"Please see specific branches instead"
+  "require": {
+    "magento/product-community-edition": "~2.3.6"
+  },
+  "replace": {
+    "magento/module-authorizenet-graph-ql":"*",
+    "magento/module-braintree-graph-ql":"*",
+    "magento/module-bundle-graph-ql": "*",
+    "magento/module-catalog-graph-ql": "*",
+    "magento/module-catalog-cms-graph-ql":"*",
+    "magento/module-catalog-customer-ql": "*",
+    "magento/module-catalog-customer-graph-ql":"*",
+    "magento/module-catalog-inventory-graph-ql": "*",
+    "magento/module-catalog-url-rewrite-graph-ql": "*",
+    "magento/module-checkout-agreements-graph-ql":"*",
+    "magento/module-cms-graph-ql": "*",
+    "magento/module-cms-url-rewrite-graph-ql": "*",
+    "magento/module-configurable-product-graph-ql": "*",
+    "magento/module-customer-balance-graph-ql": "*",
+    "magento/module-customer-downloadable-graph-ql":"*",
+    "magento/module-customer-graph-ql": "*",
+    "magento/module-directory-graph-ql": "*",
+    "magento/module-downloadable-graph-ql": "*",
+    "magento/module-eav-graph-ql": "*",
+    "magento/module-gift-card-account-graph-ql": "*",
+    "magento/module-gift-card-graph-ql": "*",
+    "magento/module-graph-ql": "*",
+    "magento/module-graph-ql-cache": "*",
+    "magento/module-grouped-product-graph-ql": "*",
+    "magento/module-quote-graph-ql": "*",
+    "magento/module-paypal-graph-ql": "*",
+    "magento/module-related-product-graph-ql":"*",
+    "magento/module-reward-graph-ql": "*",
+    "magento/module-rma-graph-ql": "*",
+    "magento/module-sales-graph-ql": "*",
+    "magento/module-send-friend-graph-ql": "*",
+    "magento/module-store-graph-ql": "*",
+    "magento/module-swatches-graph-ql": "*",
+    "magento/module-tax-graph-ql": "*",
+    "magento/module-theme-graph-ql": "*",
+    "magento/module-url-rewrite-graph-ql": "*",
+    "magento/module-vault-graph-ql": "*",
+    "magento/module-weee-graph-ql": "*",
+    "magento/module-wishlist-graph-ql": "*"
+  }
 }
