@@ -29,6 +29,8 @@
     "magento/module-graph-ql-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
     "magento/module-inventory-graph-ql": "*",
+    "magento/module-inventory-in-store-pickup-graph-ql": "*",
+    "magento/module-inventory-in-store-pickup-quote-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
