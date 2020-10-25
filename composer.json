@@ -12,6 +12,7 @@
     "magento/module-catalog-customer-ql": "*",
     "magento/module-catalog-customer-graph-ql":"*",
     "magento/module-catalog-inventory-graph-ql": "*",
+    "magento/module-catalog-rule-graph-ql": "*",
     "magento/module-catalog-url-rewrite-graph-ql": "*",
     "magento/module-checkout-agreements-graph-ql":"*",
     "magento/module-cms-graph-ql": "*",
