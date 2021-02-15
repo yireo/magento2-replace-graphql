@@ -1,7 +1,7 @@
 {
   "name": "yireo/magento2-replace-graphql",
   "require": {
-    "magento/product-community-edition": "~2.4.0"
+    "magento/product-community-edition": ">=2.4.0 <2.4.1"
   },
   "replace": {
     "magento/module-authorizenet-graph-ql":"*",
@@ -28,6 +28,9 @@
     "magento/module-graph-ql": "*",
     "magento/module-graph-ql-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
+    "magento/module-inventory-graph-ql": "*",
+    "magento/module-inventory-in-store-pickup-graph-ql": "*",
+    "magento/module-inventory-in-store-pickup-quote-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
@@ -42,6 +45,7 @@
     "magento/module-url-rewrite-graph-ql": "*",
     "magento/module-vault-graph-ql": "*",
     "magento/module-weee-graph-ql": "*",
-    "magento/module-wishlist-graph-ql": "*"
+    "magento/module-wishlist-graph-ql": "*",
+    "paypal/module-braintree-graph-ql":"*"
   }
 }
