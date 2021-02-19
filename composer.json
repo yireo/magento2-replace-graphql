@@ -4,6 +4,7 @@
     "magento/product-community-edition": ">=2.4.0 <2.4.3"
   },
   "replace": {
+    "klarna/module-kp-graph-ql":"*",
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
     "magento/module-bundle-graph-ql": "*",
