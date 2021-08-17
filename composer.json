@@ -38,6 +38,7 @@
     "magento/module-inventory-graph-ql": "*",
     "magento/module-inventory-in-store-pickup-graph-ql": "*",
     "magento/module-inventory-in-store-pickup-quote-graph-ql": "*",
+    "magento/module-inventory-quote-graph-ql": "*",
     "magento/module-login-as-customer-graph-ql": "*",
     "magento/module-multiple-wishlist-graph-ql": "*",
     "magento/module-newsletter-graph-ql": "*",
