@@ -42,12 +42,17 @@ jobs:
         env:
             COMPOSER_NAME: ${{ secrets.COMPOSER_NAME }}
         run: |
+            MAGENTO_VERSION=`cat ${GITHUB_WORKSPACE}/.github/workflows/magento_version.txt`
+            BRANCH=magento-`echo $MAGENTO_VERSION | cut -f'1-2' -d\.`
+            test -z "$MAGENTO_VERSION" && exit 1
             cd /tmp/m2
             ln -s ${GITHUB_WORKSPACE} local-source
             composer config preferred-install source
             composer config minimum-stability dev
+            composer config repositories.remote-source vcs git@github.com:${COMPOSER_NAME}.git
             composer config repositories.local-source path local-source/
-            composer require ${COMPOSER_NAME}:@dev --no-update --no-interaction
+            echo "Installing ${COMPOSER_NAME}:dev-${BRANCH}"
+            composer require ${COMPOSER_NAME}:dev-${BRANCH} --no-update --no-interaction
       - name: Composer installation
         run: |
             cd /tmp/m2
