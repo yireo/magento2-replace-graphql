@@ -44,6 +44,7 @@
     "magento/module-newsletter-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
+    "magento/module-re-captcha-webapi-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-review-graph-ql": "*",
     "magento/module-reward-graph-ql": "*",
