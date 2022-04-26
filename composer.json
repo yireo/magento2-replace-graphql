@@ -42,6 +42,7 @@
     "magento/module-multiple-wishlist-graph-ql": "*",
     "magento/module-newsletter-graph-ql": "*",
     "magento/module-quote-graph-ql": "*",
+    "magento/module-payment-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-review-graph-ql": "*",
