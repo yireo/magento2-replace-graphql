@@ -29,6 +29,7 @@
     "magento/module-directory-graph-ql": "*",
     "magento/module-downloadable-graph-ql": "*",
     "magento/module-eav-graph-ql": "*",
+    "magento/module-elasticsearch-catalog-permissions-graph-ql": "*",
     "magento/module-gift-card-account-graph-ql": "*",
     "magento/module-gift-card-graph-ql": "*",
     "magento/module-gift-message-graph-ql": "*",
