@@ -33,6 +33,7 @@
     "magento/module-gift-card-account-graph-ql": "*",
     "magento/module-gift-card-graph-ql": "*",
     "magento/module-gift-message-graph-ql": "*",
+    "magento/module-gift-registry-graph-ql": "*",
     "magento/module-gift-wrapping-graph-ql": "*",
     "magento/module-graph-ql": "*",
     "magento/module-graph-ql-cache": "*",
