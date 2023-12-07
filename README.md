@@ -8,7 +8,7 @@ composer require yireo/magento2-replace-tools
 
 Use the new command-line to add the meta-package of this specific repository to your root `composer.json`:
 ```bash
-composer replace:bulk:add yireo/magento2-replace-bundled # Add a replacement bulk package
+composer replace:bulk:add yireo/magento2-replace-graphql
 ```
 
 Verify that your meta-information regarding composer replacements is correct:
