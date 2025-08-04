@@ -9,10 +9,10 @@
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
     "magento/module-bundle-graph-ql": "*",
-    "magento/module-catalog-graph-ql": "*",
     "magento/module-catalog-cms-graph-ql":"*",
-    "magento/module-catalog-customer-ql": "*",
     "magento/module-catalog-customer-graph-ql":"*",
+    "magento/module-catalog-customer-ql": "*",
+    "magento/module-catalog-graph-ql": "*",
     "magento/module-catalog-inventory-graph-ql": "*",
     "magento/module-catalog-permissions-graph-ql": "*",
     "magento/module-catalog-rule-graph-ql": "*",
@@ -48,13 +48,13 @@
     "magento/module-login-as-customer-graph-ql": "*",
     "magento/module-multiple-wishlist-graph-ql": "*",
     "magento/module-newsletter-graph-ql": "*",
-    "magento/module-quote-graph-ql": "*",
     "magento/module-order-cancellation-graph-ql": "*",
     "magento/module-payment-graph-ql": "*",
     "magento/module-payment-services-paypal-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
-    "magento/module-re-captcha-webapi-graph-ql": "*",
+    "magento/module-quote-graph-ql": "*",
     "magento/module-re-captcha-version-3-invisible": "*",
+    "magento/module-re-captcha-webapi-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-review-graph-ql": "*",
     "magento/module-reward-graph-ql": "*",
@@ -73,6 +73,6 @@
     "magento/module-weee-graph-ql": "*",
     "magento/module-wishlist-gift-card-graph-ql": "*",
     "magento/module-wishlist-graph-ql": "*",
-    "paypal/module-braintree-graph-ql":"*"
+    "paypal/module-braintree-graph-ql": "*"
   }
 }
