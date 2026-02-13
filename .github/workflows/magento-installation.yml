@@ -5,17 +5,37 @@ defaults:
     shell: bash
 jobs:
   magento-installation:
-    name: Magento 2 Test Install
+    name: Magento ${{ matrix.magento }} / PHP ${{ matrix.php }}
     runs-on: ubuntu-latest
-    container: yireo/magento2base:7.4
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - magento_version: "2.4.8-p3"
+            php_image: "yireo/magento2base:8.3"
+            search_image: "opensearchproject/opensearch:2"
+            mysql_image: "mysql:8.0"
+            magento_install_args: "--opensearch-host=search"
+          #- magento_version: "2.4.7-p4"
+          #  php_image: "yireo/magento2base:8.3"
+          #  search_image: "opensearchproject/opensearch:2"
+          #  mysql_image: "mysql:8.0"
+          #  magento_install_args: "--opensearch-host=search"
+          #- magento_version: "2.4.5-p5"
+          #  php_image: "yireo/magento2base:8.1"
+          #  search_image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+          #  mysql_image: "mysql:8.0"
+          #  magento_install_args: "--elasticsearch-host=search"
+
+    container: ${{ matrix.php_image }}
     services:
-      es:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+      search:
+        image: ${{ matrix.search_image }}
         ports:
           - 9200:9200
         options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
       mysql:
-        image: mysql:5.7
+        image: ${{ matrix.mysql_image }}
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: magento2
@@ -35,14 +55,14 @@ jobs:
             composer global config -l
       - name: Creating Magento composer project
         run: |
-            MAGENTO_VERSION=`cat ${GITHUB_WORKSPACE}/.github/workflows/magento_version.txt`
+            MAGENTO_VERSION=${{ matrix.magento_version }}
             test -z "$MAGENTO_VERSION" && exit 1
             composer create-project --repository=https://repo.magento.com/ magento/project-community-edition:${MAGENTO_VERSION} /tmp/m2 --no-install --no-interaction --no-progress
       - name: Setup local composer package
         env:
             COMPOSER_NAME: ${{ secrets.COMPOSER_NAME }}
         run: |
-            MAGENTO_VERSION=`cat ${GITHUB_WORKSPACE}/.github/workflows/magento_version.txt`
+            MAGENTO_VERSION=${{ matrix.magento_version }}
             BRANCH=magento-`echo $MAGENTO_VERSION | cut -f'1-2' -d\.`
             test -z "$MAGENTO_VERSION" && exit 1
             cd /tmp/m2
@@ -69,7 +89,7 @@ jobs:
                 --backend-frontname=admin --language=en_US \
                 --currency=USD --timezone=Europe/Amsterdam --cleanup-database \
                 --sales-order-increment-prefix="ORD$" --session-save=db \
-                --use-rewrites=1 --elasticsearch-host=es
+                --use-rewrites=1 ${{ matrix.magento_install_args }}
       - name: Magento compilation
         run: |
             cd /tmp/m2
