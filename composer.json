@@ -1,17 +1,18 @@
 {
   "name": "yireo/magento2-replace-graphql",
   "require": {
-    "magento/product-community-edition": ">=2.4.0 <2.4.4"
+    "magento/product-community-edition": "2.4.*"
   },
   "replace": {    
     "klarna/module-kp-graph-ql":"*",
+    "magento/module-async-order-graph-ql": "*",
     "magento/module-authorizenet-graph-ql":"*",
     "magento/module-braintree-graph-ql":"*",
     "magento/module-bundle-graph-ql": "*",
-    "magento/module-catalog-graph-ql": "*",
     "magento/module-catalog-cms-graph-ql":"*",
-    "magento/module-catalog-customer-ql": "*",
     "magento/module-catalog-customer-graph-ql":"*",
+    "magento/module-catalog-customer-ql": "*",
+    "magento/module-catalog-graph-ql": "*",
     "magento/module-catalog-inventory-graph-ql": "*",
     "magento/module-catalog-permissions-graph-ql": "*",
     "magento/module-catalog-rule-graph-ql": "*",
@@ -22,18 +23,23 @@
     "magento/module-cms-url-rewrite-graph-ql": "*",
     "magento/module-compare-list-graph-ql": "*",
     "magento/module-configurable-product-graph-ql": "*",
+    "magento/module-contact-graph-ql": "*",
     "magento/module-customer-balance-graph-ql": "*",
     "magento/module-customer-downloadable-graph-ql":"*",
     "magento/module-customer-graph-ql": "*",
     "magento/module-directory-graph-ql": "*",
     "magento/module-downloadable-graph-ql": "*",
     "magento/module-eav-graph-ql": "*",
+    "magento/module-elasticsearch-catalog-permissions-graph-ql": "*",
     "magento/module-gift-card-account-graph-ql": "*",
     "magento/module-gift-card-graph-ql": "*",
     "magento/module-gift-message-graph-ql": "*",
+    "magento/module-gift-registry-graph-ql": "*",
     "magento/module-gift-wrapping-graph-ql": "*",
     "magento/module-graph-ql": "*",
     "magento/module-graph-ql-cache": "*",
+    "magento/module-graph-ql-new-relic": "*",
+    "magento/module-graph-ql-resolver-cache": "*",
     "magento/module-grouped-product-graph-ql": "*",
     "magento/module-inventory-graph-ql": "*",
     "magento/module-inventory-in-store-pickup-graph-ql": "*",
@@ -42,8 +48,11 @@
     "magento/module-login-as-customer-graph-ql": "*",
     "magento/module-multiple-wishlist-graph-ql": "*",
     "magento/module-newsletter-graph-ql": "*",
-    "magento/module-quote-graph-ql": "*",
+    "magento/module-order-cancellation-graph-ql": "*",
+    "magento/module-payment-graph-ql": "*",
+    "magento/module-payment-services-paypal-graph-ql": "*",
     "magento/module-paypal-graph-ql": "*",
+    "magento/module-quote-graph-ql": "*",
     "magento/module-re-captcha-webapi-graph-ql": "*",
     "magento/module-related-product-graph-ql":"*",
     "magento/module-review-graph-ql": "*",
@@ -61,7 +70,8 @@
     "magento/module-vault-graph-ql": "*",
     "magento/module-versions-cms-url-rewrite-graph-ql": "*",
     "magento/module-weee-graph-ql": "*",
+    "magento/module-wishlist-gift-card-graph-ql": "*",
     "magento/module-wishlist-graph-ql": "*",
-    "paypal/module-braintree-graph-ql":"*"
+    "paypal/module-braintree-graph-ql": "*"
   }
 }
