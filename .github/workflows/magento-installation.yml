@@ -13,7 +13,7 @@ jobs:
         include:
           - magento_version: "2.4.8-p3"
             php_image: "yireo/magento2base:8.3"
-            search_image: "opensearchproject/opensearch:2"
+            search_image: "yireo/opensearch"
             mysql_image: "mysql:8.0"
             magento_install_args: "--opensearch-host=search"
           #- magento_version: "2.4.7-p4"
