@@ -5,7 +5,7 @@ defaults:
     shell: bash
 jobs:
   magento-installation:
-    name: Magento ${{ matrix.magento }} / PHP ${{ matrix.php }}
+    name: Magento ${{ matrix.magento_version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
