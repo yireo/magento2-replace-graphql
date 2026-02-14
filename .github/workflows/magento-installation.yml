@@ -68,6 +68,7 @@ jobs:
             BRANCH=magento-`echo $MAGENTO_VERSION | cut -f'1-2' -d\.`
             test -z "$MAGENTO_VERSION" && exit 1
             cd /tmp/m2
+            composer config audit.block-insecure false
             composer config preferred-install source
             composer config minimum-stability dev
             composer config repositories.remote-source vcs git@github.com:${COMPOSER_NAME}.git
