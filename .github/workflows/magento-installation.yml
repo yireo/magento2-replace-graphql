@@ -23,11 +23,9 @@ jobs:
             magento_install_args: "--opensearch-host=search"
           - magento_version: "2.4.5-p5"
             php_image: "yireo/magento2base:8.1"
-            search_image: "yireo/opensearch"
-            #search_image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+            search_image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
             mysql_image: "mysql:8.0"
-            magento_install_args: "--opensearch-host=search"
-            #magento_install_args: "--elasticsearch-host=search"
+            magento_install_args: "--elasticsearch-host=search"
 
     container: ${{ matrix.php_image }}
     services:
