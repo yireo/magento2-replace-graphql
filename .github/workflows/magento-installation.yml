@@ -13,46 +13,53 @@ jobs:
         include:
           - magento_version: "2.4.9"
             php_image: "yireo/magento2base:8.5"
-            search_image: "yireo/opensearch"
-            mysql_image: "mysql:8.0"
+            search_image: "yireo/opensearch-dummy"
+            mysql_image: "yireo/mariadb:10"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
 
           - magento_version: "2.4.8-p5"
             php_image: "yireo/magento2base:8.4"
-            search_image: "yireo/opensearch"
-            mysql_image: "mysql:8.0"
+            search_image: "yireo/opensearch-dummy"
+            mysql_image: "yireo/mariadb:11"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.8-p3"
             php_image: "yireo/magento2base:8.3"
-            search_image: "yireo/opensearch"
-            mysql_image: "mysql:8.0"
+            search_image: "yireo/opensearch-dummy"
+            mysql_image: "yireo/mariadb:11"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.7-p4"
             php_image: "yireo/magento2base:8.3"
-            search_image: "yireo/opensearch"
-            mysql_image: "mysql:8.0"
+            search_image: "yireo/opensearch-dummy"
+            mysql_image: "yireo/mariadb:10"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.5-p5"
             php_image: "yireo/magento2base:8.1"
             search_image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
-            mysql_image: "mysql:8.0"
+            mysql_image: "yireo/mysql:8.0"
             magento_install_args: "--elasticsearch-host=search"
 
-    container: ${{ matrix.php_image }}
+    container:
+      image: ${{ matrix.php_image }}
+      options: >-
+        --tmpfs /tmp/m2:size=1024m
+
     services:
       search:
         image: ${{ matrix.search_image }}
         ports:
           - 9200:9200
+        env:
+          discovery.type: single-node
+          OPENSEARCH_JAVA_OPTS: "-Xms512m -Xmx512m"
         options: >-
             -e="discovery.type=single-node" 
-            --health-cmd="curl http://localhost:9200/_cluster/health" 
+            --health-cmd="curl -fs http://localhost:9200/_cluster/health || exit 1" 
             --health-interval=10s 
             --health-timeout=5s 
-            --health-retries=10
+            --health-retries=30
       mysql:
         image: ${{ matrix.mysql_image }}
         ports:
@@ -63,16 +70,23 @@ jobs:
         options: >-
             --tmpfs /tmp:rw 
             --tmpfs /var/lib/mysql:rw 
-            --health-cmd="mysqladmin ping" 
+            --health-cmd="mysqladmin ping -h localhost -proot" 
             --health-interval=10s 
             --health-timeout=5s 
-            --health-retries=3
+            --health-retries=20
     steps:
       - uses: actions/checkout@v2
       - name: Trust GitHub SSH host
         run: |
             mkdir -p ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      #- uses: actions/cache@v4
+      #  with:
+      #      path: ~/.composer/cache
+      #      key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+      #      restore-keys: composer-${{ runner.os }}-
+
       - name: Composer preparation
         env:
             MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_PUBLIC_KEY }}
@@ -82,11 +96,13 @@ jobs:
             composer global config http-basic.repo.magento.com $MAGENTO_MARKETPLACE_USERNAME $MAGENTO_MARKETPLACE_PASSWORD
             composer global config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
             composer global config -l
+
       - name: Creating Magento composer project
         run: |
             MAGENTO_VERSION=${{ matrix.magento_version }}
             test -z "$MAGENTO_VERSION" && exit 1
             composer create-project --repository=https://repo.magento.com/ magento/project-community-edition:${MAGENTO_VERSION} /tmp/m2 --no-install --no-interaction --no-progress
+
       - name: Setup local composer package
         env:
             COMPOSER_NAME: ${{ secrets.COMPOSER_NAME }}
@@ -101,10 +117,12 @@ jobs:
             composer config repositories.remote-source vcs git@github.com:${COMPOSER_NAME}.git
             echo "Installing ${COMPOSER_NAME}:dev-${BRANCH}"
             composer require ${COMPOSER_NAME}:dev-${BRANCH} --no-update --no-interaction
+
       - name: Composer installation
         run: |
             cd /tmp/m2
             COMPOSER_MEMORY_LIMIT=-1 composer install --prefer-source --no-interaction --no-progress --no-dev
+
       - name: Magento installation
         run: |
             cd /tmp/m2
@@ -118,10 +136,12 @@ jobs:
                 --currency=USD --timezone=Europe/Amsterdam --cleanup-database \
                 --sales-order-increment-prefix="ORD$" --session-save=db \
                 --use-rewrites=1 ${{ matrix.magento_install_args }}
+
       - name: Magento compilation
         run: |
             cd /tmp/m2
             php -d memory_limit=2G bin/magento setup:di:compile
+
       - name: Additional checks
         run: |
             cd /tmp/m2
