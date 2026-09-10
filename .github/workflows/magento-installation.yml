@@ -45,19 +45,19 @@ jobs:
     services:
       search:
         image: ${{ matrix.search_image }}
-        ports:
-          - 9200:9200
         options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
       mysql:
         image: ${{ matrix.mysql_image }}
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: magento2
-        ports:
-          - 3306:3306
         options: --tmpfs /tmp:rw --tmpfs /var/lib/mysql:rw --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
+      - name: Trust GitHub SSH host
+        run: |
+            mkdir -p ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
       - name: Composer preparation
         env:
             MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_PUBLIC_KEY }}
