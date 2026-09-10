@@ -2,9 +2,16 @@
 
 This repository contains a composer meta-package that removes optional modules. To install this package, use the instructions on the repository [`yireo/magento2-replace-tools`.](https://github.com/yireo/magento2-replace-tools)
 
-## Caveats
+## Unremovables
 
-### Interface "Magento\ReCaptchaWebapiGraphQl\Model\Adapter\ReCaptchaConfigInterface" not found 
+### Do not remove `magento/module-graph-ql-server`
+Removing this package gives the following error:
+
+```
+Impossible to process constructor argument Parameter #1 [ <required> Magento\GraphQlServer\Model\UrlProvider $graphQlUrl ] of Magento\ServicesIdLayout\Block\Adminhtml\Index class
+```
+
+### Do not remove `magento/module-re-captcha-webapi-graph-ql`
 ```
 There is an error in /tmp/m2/vendor/magento/module-re-captcha-version-3-invisible/Model/Config.php at line: 16
 26
