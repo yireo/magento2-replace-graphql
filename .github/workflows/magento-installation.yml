@@ -11,16 +11,30 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - magento_version: "2.4.9"
+            php_image: "yireo/magento2base:8.5"
+            search_image: "yireo/opensearch"
+            mysql_image: "mysql:8.0"
+            magento_install_args: "--opensearch-host=search"
+
+          - magento_version: "2.4.8-p5"
+            php_image: "yireo/magento2base:8.4"
+            search_image: "yireo/opensearch"
+            mysql_image: "mysql:8.0"
+            magento_install_args: "--opensearch-host=search"
+          
           - magento_version: "2.4.8-p3"
             php_image: "yireo/magento2base:8.3"
             search_image: "yireo/opensearch"
             mysql_image: "mysql:8.0"
             magento_install_args: "--opensearch-host=search"
+          
           - magento_version: "2.4.7-p4"
             php_image: "yireo/magento2base:8.3"
             search_image: "yireo/opensearch"
             mysql_image: "mysql:8.0"
             magento_install_args: "--opensearch-host=search"
+          
           - magento_version: "2.4.5-p5"
             php_image: "yireo/magento2base:8.1"
             search_image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
@@ -46,8 +60,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Composer preparation
         env:
-            MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
-            MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
+            MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_PUBLIC_KEY }}
+            MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PRIVATE_KEY }}
         run: |
             mkdir -p /tmp/m2 && cd /tmp/m2
             composer global config http-basic.repo.magento.com $MAGENTO_MARKETPLACE_USERNAME $MAGENTO_MARKETPLACE_PASSWORD
