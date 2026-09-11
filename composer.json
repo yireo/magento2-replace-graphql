@@ -41,7 +41,6 @@
     "magento/module-graph-ql-cache": "*",
     "magento/module-graph-ql-new-relic": "*",
     "magento/module-graph-ql-resolver-cache": "*",
-    "magento/module-graph-ql-server": "*",
     "magento/module-grouped-product-graph-ql": "*",
     "magento/module-integration-graph-ql": "*",
     "magento/module-inventory-graph-ql": "*",

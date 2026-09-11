@@ -14,7 +14,7 @@ jobs:
           - magento_version: "2.4.9"
             php_image: "yireo/magento2base:8.5"
             search_image: "yireo/opensearch"
-            mysql_image: "yireo/mariadb:11"
+            mysql_image: "yireo/mariadb:10"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.8-p3"
