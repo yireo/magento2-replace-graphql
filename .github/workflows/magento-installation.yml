@@ -13,25 +13,19 @@ jobs:
         include:
           - magento_version: "2.4.9"
             php_image: "yireo/magento2base:8.5"
-            search_image: "yireo/opensearch-dummy"
-            mysql_image: "yireo/mariadb:10"
-            magento_install_args: "--search-engine=opensearch --opensearch-host=search"
-
-          - magento_version: "2.4.8-p5"
-            php_image: "yireo/magento2base:8.4"
-            search_image: "yireo/opensearch-dummy"
+            search_image: "yireo/opensearch"
             mysql_image: "yireo/mariadb:11"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.8-p3"
             php_image: "yireo/magento2base:8.3"
-            search_image: "yireo/opensearch-dummy"
+            search_image: "yireo/opensearch"
             mysql_image: "yireo/mariadb:11"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
           - magento_version: "2.4.7-p4"
             php_image: "yireo/magento2base:8.3"
-            search_image: "yireo/opensearch-dummy"
+            search_image: "yireo/opensearch"
             mysql_image: "yireo/mariadb:10"
             magento_install_args: "--search-engine=opensearch --opensearch-host=search"
           
