@@ -43,8 +43,8 @@ jobs:
 
     container:
       image: ${{ matrix.php_image }}
-      options: >-
-        --tmpfs /tmp/m2:size=1024m
+      #options: >-
+      #  --tmpfs /tmp/m2:size=1024m
 
     services:
       search:
